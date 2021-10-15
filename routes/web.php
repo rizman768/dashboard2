@@ -23,9 +23,9 @@ Route::get('login', [AuthController::class, 'index'])->name('login');
 Route::get('register', [AuthController::class, 'register']);
 Route::post('storeregister', [AuthController::class, 'storeregister']);
 Route::post('updateuser', [AuthController::class, 'update']);
-Route::get('manajemenuser', [AuthController::class, 'manajemenuser'])->name('manajemenuser')->middleware('auth','ceklevel:admin');
 Route::post('userlogin', [AuthController::class, 'login']);
 Route::get('logout', [AuthController::class, 'logout']);
 
 use App\Http\Controllers\KontenController;
-Route::get('dashboard', [KontenController::class, 'dashboard'])->middleware('auth','ceklevel:admin,user');
+Route::get('dashboard', [KontenController::class, 'dashboard'])->name('dashboard')->middleware('auth','ceklevel:admin,user');
+Route::get('olahuser', [KontenController::class, 'manajemenuser'])->name('manajemenuser')->middleware('auth','ceklevel:admin');

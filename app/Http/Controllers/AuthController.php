@@ -44,12 +44,6 @@ class AuthController extends Controller
         return redirect('/login');
     }
 
-    public function manajemenuser(){
-        $users = User::all();
-
-
-        return redirect('/manajemenuser');
-    }
 
     public function update(Request $request){
         $users->update($request->all());

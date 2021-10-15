@@ -8,10 +8,10 @@
                                 Dashboard
                             </a>
                             @if (auth()->user()->level=="admin")  
-                            <a class="nav-link" href="/manajemenuser">
-                                <div class="sb-nav-link-icon"><i class="fa fa-user"></i></div>
-                                Manajemen User
-                            </a>
+                                <a class="nav-link" href="/olahuser">
+                                    <div class="sb-nav-link-icon"><i class="fa fa-user"></i></div>
+                                    Manajemen User
+                                </a>
                             @endif
                     </div>
                 </nav>
