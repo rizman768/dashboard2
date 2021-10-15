@@ -29,7 +29,7 @@
                                 <td>{{ ++$i }}</td>
                                 <td>{{ $user->name }}</td>
                                 <td>{{ $user->email }}</td>
-                                <td>{{ $user->level }}</td>
+                                <td>{{ $user->role->role }}</td>
                                 <td>
                                     <form action="" method="POST">
                                         <a class="btn btn-primary btn-sm" href="">Edit</a>

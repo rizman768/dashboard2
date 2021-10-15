@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 13, 2021 at 09:14 AM
+-- Generation Time: Oct 15, 2021 at 06:42 PM
 -- Server version: 10.4.19-MariaDB
 -- PHP Version: 8.0.6
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `tugaspkl`
+-- Database: `tugasdashboard`
 --
 
 -- --------------------------------------------------------
@@ -57,7 +57,9 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (1, '2014_10_12_000000_create_users_table', 1),
 (2, '2014_10_12_100000_create_password_resets_table', 1),
 (3, '2019_08_19_000000_create_failed_jobs_table', 1),
-(4, '2019_12_14_000001_create_personal_access_tokens_table', 1);
+(4, '2019_12_14_000001_create_personal_access_tokens_table', 1),
+(5, '2021_10_15_133733_role', 2),
+(6, '2021_10_15_144418_create_roles_table', 3);
 
 -- --------------------------------------------------------
 
@@ -92,13 +94,34 @@ CREATE TABLE `personal_access_tokens` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `roles`
+--
+
+CREATE TABLE `roles` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `role` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `roles`
+--
+
+INSERT INTO `roles` (`id`, `role`, `created_at`, `updated_at`) VALUES
+(1, 'admin', NULL, NULL),
+(2, 'user', NULL, NULL);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `users`
 --
 
 CREATE TABLE `users` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `level` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `role_id` bigint(20) NOT NULL,
   `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `email_verified_at` timestamp NULL DEFAULT NULL,
   `password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -111,12 +134,12 @@ CREATE TABLE `users` (
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `name`, `level`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'rizman', 'admin', 'rizman@gmail.com', NULL, '$2y$10$iYURu568UbRk0SsKNHgZyetbRXLQrQ/ysq3o4qkq2oMDFAS3zhC5u', 'fVb5rgEyCdjTgiwjvack3KQzkXrUfeJAd2QMEp7OUtCVRnm1PTsIzwRlFdXf', '2021-10-10 21:12:25', '2021-10-10 21:12:25'),
-(2, 'Maulana', 'user', 'maulana@gmail.com', NULL, '$2y$10$pqNKRWCelsp2HBgEPxW3X.kESqReeV9Mzstkdx.2hUEP2UqOKU41q', '9KGA7Mk1PN4lYnkP0v8xSQL8yr0qbHqNsfZC4V2M6dgJ4yAY4ujgthGmJEDq', '2021-10-11 01:08:08', '2021-10-11 01:08:08'),
-(4, 'Rizqi Maulana', 'user', 'rizman768@gmail.com', NULL, '$2y$10$qHgXUHYlqsMge4HbXveCLucKXV9luS3I4fdG/NsqV3ek0Qr/tAsGC', NULL, '2021-10-11 21:58:41', '2021-10-11 21:58:41'),
-(7, 'Diky Prayoga', 'user', 'apaaja@gmail.com', NULL, '$2y$10$erh2xY95iJ.4E46o1o9kJejZ8A4rAsdq3ruMgvo6RNHNxO26X47jy', NULL, '2021-10-11 22:19:16', '2021-10-11 22:19:16'),
-(9, 'Nadaa Marhama', 'user', 'nadaa@gmail.com', NULL, '$2y$10$8IfVsWjcRGi77PqYChk7Tu57hZLILwBYXrIw3fN5cPB3piV8vS.ku', NULL, '2021-10-11 23:01:54', '2021-10-11 23:01:54');
+INSERT INTO `users` (`id`, `name`, `role_id`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
+(1, 'rizman', 1, 'rizman@gmail.com', NULL, '$2y$10$iYURu568UbRk0SsKNHgZyetbRXLQrQ/ysq3o4qkq2oMDFAS3zhC5u', '9OdhdwJlzFmyvDQ0EERtDx8SyMJ4fCckYA8NVmzYHfEx38I17xswt8AfpMXX', '2021-10-10 21:12:25', '2021-10-10 21:12:25'),
+(2, 'Maulana', 2, 'maulana@gmail.com', NULL, '$2y$10$pqNKRWCelsp2HBgEPxW3X.kESqReeV9Mzstkdx.2hUEP2UqOKU41q', '9KGA7Mk1PN4lYnkP0v8xSQL8yr0qbHqNsfZC4V2M6dgJ4yAY4ujgthGmJEDq', '2021-10-11 01:08:08', '2021-10-11 01:08:08'),
+(4, 'Rizqi Maulana', 2, 'rizman768@gmail.com', NULL, '$2y$10$qHgXUHYlqsMge4HbXveCLucKXV9luS3I4fdG/NsqV3ek0Qr/tAsGC', NULL, '2021-10-11 21:58:41', '2021-10-11 21:58:41'),
+(7, 'Diky Prayoga', 2, 'apaaja@gmail.com', NULL, '$2y$10$erh2xY95iJ.4E46o1o9kJejZ8A4rAsdq3ruMgvo6RNHNxO26X47jy', NULL, '2021-10-11 22:19:16', '2021-10-11 22:19:16'),
+(9, 'Nadaa Marhama', 2, 'nadaa@gmail.com', NULL, '$2y$10$8IfVsWjcRGi77PqYChk7Tu57hZLILwBYXrIw3fN5cPB3piV8vS.ku', NULL, '2021-10-11 23:01:54', '2021-10-11 23:01:54');
 
 --
 -- Indexes for dumped tables
@@ -150,6 +173,12 @@ ALTER TABLE `personal_access_tokens`
   ADD KEY `personal_access_tokens_tokenable_type_tokenable_id_index` (`tokenable_type`,`tokenable_id`);
 
 --
+-- Indexes for table `roles`
+--
+ALTER TABLE `roles`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
@@ -170,13 +199,19 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `personal_access_tokens`
 --
 ALTER TABLE `personal_access_tokens`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `roles`
+--
+ALTER TABLE `roles`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `users`

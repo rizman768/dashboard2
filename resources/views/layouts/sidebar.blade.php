@@ -7,7 +7,7 @@
                                 <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                                 Dashboard
                             </a>
-                            @if (auth()->user()->level=="admin")  
+                            @if (auth()->user()->role_id=="1")  
                                 <a class="nav-link" href="/olahuser">
                                     <div class="sb-nav-link-icon"><i class="fa fa-user"></i></div>
                                     Manajemen User
