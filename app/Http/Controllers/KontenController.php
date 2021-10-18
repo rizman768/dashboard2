@@ -16,6 +16,20 @@ class KontenController extends Controller
     public function manajemenuser(){
         $users = User::all();
 
-        return view('konten.manajemenuser')->with(compact('users'));
+        return view('konten.Manajemen User.manajemenuser')->with(compact('users'));
+    }
+
+     public function tambahuser(){
+        return view('konten.Manajemen User.tambahuser');
+    }
+
+    public function manajemenrole(){
+        $role = Role::all();
+
+        return view('konten.Manajemen Role.manajemenrole')->with(compact('role'));
+    }
+
+    public function tambahrole(){
+        return view('konten.Manajemen Role.tambahrole');
     }
 }

@@ -22,10 +22,22 @@ use App\Http\Controllers\AuthController;
 Route::get('login', [AuthController::class, 'index'])->name('login');
 Route::get('register', [AuthController::class, 'register']);
 Route::post('storeregister', [AuthController::class, 'storeregister']);
-Route::post('updateuser', [AuthController::class, 'update']);
+Route::post('storetambahuser', [AuthController::class, 'storetambahuser']);
+Route::post('storetambahrole', [AuthController::class, 'storetambahrole']);
+Route::get('deleteuser', [AuthController::class, 'deleteuser']);
+Route::get('edituser', [AuthController::class, 'edituser']);
+Route::get('editrole', [AuthController::class, 'editrole']);
+Route::post('updateuser', [AuthController::class, 'updateuser']);
+Route::post('updaterole', [AuthController::class, 'updaterole']);
 Route::post('userlogin', [AuthController::class, 'login']);
 Route::get('logout', [AuthController::class, 'logout']);
+
+// use App\Http\Controllers\AuthController;
+// Route::resource('user', AuthController::class)->middleware('auth');
 
 use App\Http\Controllers\KontenController;
 Route::get('dashboard', [KontenController::class, 'dashboard'])->name('dashboard')->middleware('auth','cekrole:1, 2');
 Route::get('olahuser', [KontenController::class, 'manajemenuser'])->name('manajemenuser')->middleware('auth','cekrole:1');
+Route::get('olahrole', [KontenController::class, 'manajemenrole'])->name('manajemenrole')->middleware('auth','cekrole:1');
+Route::get('tambahuser', [KontenController::class, 'tambahuser'])->middleware('auth','cekrole:1');
+Route::get('tambahrole', [KontenController::class, 'tambahrole'])->middleware('auth','cekrole:1');

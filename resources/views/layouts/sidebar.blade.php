@@ -12,6 +12,10 @@
                                     <div class="sb-nav-link-icon"><i class="fa fa-user"></i></div>
                                     Manajemen User
                                 </a>
+                                <a class="nav-link" href="/olahrole">
+                                    <div class="sb-nav-link-icon"><i class="fa fa-user"></i></div>
+                                    Manajemen Role
+                                </a>
                             @endif
                     </div>
                 </nav>
