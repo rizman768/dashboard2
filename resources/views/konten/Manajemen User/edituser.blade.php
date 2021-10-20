@@ -1,4 +1,4 @@
-extends('layouts.layout')
+@extends('layouts.layout')
 
 @section('content')
 	<div class="container-fluid px-4">
@@ -14,6 +14,16 @@ extends('layouts.layout')
                         </div>
     				</div>
     				<div class="body">
+                         @if ($errors->any())
+                        <div class="alert alert-danger">
+                            <strong>Whoops!</strong> There were some problems with your input.<br><br>
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                        @endif
     					<form action="/updateuser" method="POST">
                             @csrf
                          
@@ -21,7 +31,7 @@ extends('layouts.layout')
                                 <div class="col-xs-12 col-sm-12 col-md-12">
                                     <div class="form-group">
                                         <strong>Full Name :</strong>
-                                        <input type="text" name="nama" class="form-control" value="{{ $users->name }}"placeholder="Nama">
+                                        <input type="text" name="name" class="form-control" value="{{ $users->name }}"placeholder="Nama">
                                     </div>
                                 </div>
                                 <div class="col-xs-12 col-sm-12 col-md-12">
@@ -33,7 +43,7 @@ extends('layouts.layout')
                                 <div class="col-xs-12 col-sm-12 col-md-12">
                                     <div class="form-group">
                                         <strong>Password :</strong>
-                                        <input type="password" name="password" class="form-control" value="{{ $users->npm }}" placeholder="Password">
+                                        <input type="password" name="password" class="form-control"  placeholder="Password">
                                     </div>
                                 </div>
                                 <div class="col-xs-12 col-sm-12 col-md-12">

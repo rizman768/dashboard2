@@ -1,4 +1,4 @@
-extends('layouts.layout')
+@extends('layouts.layout')
 
 @section('content')
 	<div class="container-fluid px-4">
@@ -21,7 +21,7 @@ extends('layouts.layout')
                                 <div class="col-xs-12 col-sm-12 col-md-12">
                                     <div class="form-group">
                                         <strong>Role :</strong>
-                                        <input type="text" name="role" class="form-control" value="{{$role->role}}" placeholder="Role">
+                                        <input type="text" name="role" class="form-control" value="{{ $role->role }}" placeholder="Role">
                                     </div>
                                 </div>
                                 <div class="col-xs-12 col-sm-12 col-md-12 text-center">

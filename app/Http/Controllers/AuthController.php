@@ -66,34 +66,65 @@ class AuthController extends Controller
         return redirect('/login');
     }
 
-    public function edituser(){
+    public function edituser($id){
+        $users = User::where('id', $id)->first();
         return view('konten.Manajemen User.edituser')->with(compact('users'));
     }
 
-      public function editrole(){
+      public function editrole($id){
+        $role = User::where('id', $id)->first();
         return view('konten.Manajemen Role.editrole')->with(compact('role'));
     }
 
 
     public function updateuser(Request $request){
-        $users->update($request->all());
+
+        $this->validate($request, [
+            'name' => 'required',
+            'email' => 'required',
+            'password' => 'required',
+            'role_id' => 'required',
+        ]);
+
+        $users = User::where('id', $request->id)->update([
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => bcrypt($request->password),
+            'role_id' => $request->role_id,
+            'remember_token' => Str::random(60),
+        ]);
 
         return redirect()->route('manajemenuser')->with('success','Akun telah terupdate');
     }
 
 
     public function updaterole(Request $request){
-        $role->update($request->all());
+        $this->validate($request, [
+            'role' => 'required',
+        ]);
+        
+        $role = Role::where('id', $request->id)->update([
+            'role' => $request->role,
+
+        ]);
 
         return redirect()->route('manajemenrole')->with('success','Akun telah terupdate');
     }
 
-    public function destroy(User $id)
+    public function destroyuser($id)
     {
         /// melakukan hapus data berdasarkan parameter yang dikirimkan
         $users = User::where('id', $id)->delete();
   
-        // return redirect()->route('manajemenuser')->with('success','Akun telah Terhapus');
+        return redirect()->route('manajemenuser')->with('success','Akun telah Terhapus');
+    }
+
+     public function destroyrole($id)
+    {
+        /// melakukan hapus data berdasarkan parameter yang dikirimkan
+        $role = Role::where('id', $id)->delete();
+  
+        return redirect()->route('manajemenuser')->with('success','Akun telah Terhapus');
     }
 
     public function logout(){

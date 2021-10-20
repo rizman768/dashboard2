@@ -31,8 +31,8 @@
                                 <td>{{ $r->id }}</td>
                                 <td>{{ $r->role }}</td>
                                 <td>
-                                    <form action="" method="POST">
-                                        <a class="btn btn-primary btn-sm" href="">Edit</a>
+                                    <form action="/deleterole/{{$r->id}}" method="POST">
+                                        <a class="btn btn-primary btn-sm" href="/editrole/{{$r->id}}">Edit</a>
 
                                         @csrf
 										@method('DELETE')
