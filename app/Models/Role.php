@@ -18,4 +18,8 @@ class Role extends Model
     public function user(){
         return $this->hasMany(User::class);
     }
+
+    public function iframe(){
+        return $this->belongsToMany(Iframe::class);
+    }
 }

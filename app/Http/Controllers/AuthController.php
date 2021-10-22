@@ -7,6 +7,7 @@ use Session;
 use Illuminate\Support\Str;
 use App\Models\User;
 use App\Models\Role;
+use App\Models\Iframe;
 use Validator;
 
 class AuthController extends Controller
@@ -17,6 +18,14 @@ class AuthController extends Controller
 
     public function register(){
         return view('auths.register');
+    }
+
+    public function login(Request $request){
+        if (Auth::attempt($request->only('email', 'password'))) {
+            return redirect('/dashboard');
+        }
+        Session::flash('error', 'Email atau Password Salah');
+        return redirect('/login');
     }
 
     public function storeregister(Request $request){
@@ -49,31 +58,23 @@ class AuthController extends Controller
         return redirect()->route('manajemenuser')->with('success','Akun Anda Berhasil dibuat');
     }
 
-        public function storetambahrole(Request $request){
+    public function storetambahrole(Request $request){
 
         Role::create([
             'role' => $request->role,
         ]);
 
-        return redirect()->route('manajemenrole')->with('success','Akun Anda Berhasil dibuat');
-    }
-
-    public function login(Request $request){
-        if (Auth::attempt($request->only('email', 'password'))) {
-            return redirect('/dashboard');
-        }
-        Session::flash('error', 'Email atau Password Salah');
-        return redirect('/login');
+        return redirect()->route('manajemenrole')->with('success','Role Berhasil ditambahkan');
     }
 
     public function edituser($id){
         $users = User::where('id', $id)->first();
-        return view('konten.Manajemen User.edituser')->with(compact('users'));
+        return view('konten.manajemen_user.edituser')->with(compact('users'));
     }
 
-      public function editrole($id){
-        $role = User::where('id', $id)->first();
-        return view('konten.Manajemen Role.editrole')->with(compact('role'));
+    public function editrole($id){
+        $role = Role::where('id', $id)->first();
+        return view('konten.manajemen_role.editrole')->with(compact('role'));
     }
 
 
@@ -82,14 +83,12 @@ class AuthController extends Controller
         $this->validate($request, [
             'name' => 'required',
             'email' => 'required',
-            'password' => 'required',
             'role_id' => 'required',
         ]);
 
         $users = User::where('id', $request->id)->update([
             'name' => $request->name,
             'email' => $request->email,
-            'password' => bcrypt($request->password),
             'role_id' => $request->role_id,
             'remember_token' => Str::random(60),
         ]);
@@ -124,7 +123,7 @@ class AuthController extends Controller
         /// melakukan hapus data berdasarkan parameter yang dikirimkan
         $role = Role::where('id', $id)->delete();
   
-        return redirect()->route('manajemenuser')->with('success','Akun telah Terhapus');
+        return redirect()->route('manajemenrole')->with('success','Role telah Terhapus');
     }
 
     public function logout(){

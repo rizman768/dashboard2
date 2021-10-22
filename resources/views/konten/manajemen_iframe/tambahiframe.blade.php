@@ -2,26 +2,31 @@
 
 @section('content')
 	<div class="container-fluid px-4">
-		<h1 class="mt-4">Edit Role</h1>
-		<ol class="breadcrumb mb-4">
-			<li class="breadcrumb-item active"></li>
-		</ol>
 		<div class="row">
+			<h1 class="mt-4">Tambah Iframe</h1>
+    		<ol class="breadcrumb mb-4">                      
+    			<li class="breadcrumb-item active"></li>
+    		</ol>
+    		<div class="row">
     			<div class="panel">
     				<div class="panel-heading">
     					<div class="right">
-                           <a class="btn btn-secondary" href="/olahrole"> Back</a>
+                           <a class="btn btn-secondary" href="/olahiframe"> Back</a>
                         </div>
     				</div>
     				<div class="body">
-    					<form action="/updaterole" method="POST">
+    					<form action="/storetambahiframe" method="POST">
                             @csrf
                          
                              <div class="row">
                                 <div class="col-xs-12 col-sm-12 col-md-12">
                                     <div class="form-group">
-                                        <strong>Role :</strong>
-                                        <input type="text" name="role" class="form-control" value="{{ $role->role }}" placeholder="Role">
+                                        <strong>Nama Dashboard :</strong>
+                                        <input type="text" name="nama_dashboard" class="form-control" placeholder="Nama Dashboard">
+                                    </div>
+                                    <div class="form-group">
+                                        <strong>Link :</strong>
+                                        <input type="text" name="link" class="form-control" placeholder="Link">
                                     </div>
                                 </div>
                                 <div class="col-xs-12 col-sm-12 col-md-12 text-center">
@@ -33,5 +38,6 @@
     				</div>
     			</div>
     		</div>
+		</div>	
 	</div>
 @endsection

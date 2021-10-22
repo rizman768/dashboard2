@@ -2,7 +2,7 @@
 
 @section('content')
 	<div class="container-fluid px-4">
-		<h1 class="mt-4">Manajemen User</h1>
+		<h1 class="mt-4">Manajemen Iframe</h1>
 		<ol class="breadcrumb mb-4">
 			<li class="breadcrumb-item active"></li>
 		</ol>
@@ -10,7 +10,7 @@
 			<div class="panel">
 				<div class="panel-heading">
 					<div class="right">
-						<button type="button" class="btn btn-default"><a class="btn btn-outline-success" href="/tambahuser">Tambah User</a> </button>
+						<button type="button" class="btn btn-default"><a class="btn btn-outline-success" href="/tambahiframe">Tambah Iframe</a> </button>
 					</div>
 				</div>
 				<div class="panel-body">
@@ -18,26 +18,23 @@
 						<thead>
 							<tr>
 								<th>No</th>
-								<th>Full Name</th>
-								<th>Email </th>
-								<th>Role</th>
+								<th>Nama Dashboard</th>
+								<th>Link</th>
 								<th>Option</th>
 							</tr>
 						</thead>
 						<tbody>
 							<?php $i=0 ?>
-							@foreach ( $users as $user )
+							@foreach ( $iframe as $frame )
                             <tr>
                                 <td>{{ ++$i }}</td>
-                                <td>{{ $user->name }}</td>
-                                <td>{{ $user->email }}</td>
-                                <td>{{ $user->role->role }}</td>
+                                <td>{{ $frame->nama_dashboard }}</td>
+                                <td>{{ $frame->link }}</td>
                                 <td>
-                                    <form action="/deleteuser/{{$user->id}}" method="POST">
-                                        <a class="btn btn-primary btn-sm" href="/edituser/{{$user->id}}">Edit</a>
+                                    <form action="/deleteiframe/{{$frame->id}}" method="POST">
+                                        <a class="btn btn-primary btn-sm" href="/editiframe/{{$frame->id}}">Edit</a>
 
                                         @csrf
-										{{method_field('delete')}}
 
 										<button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?')">Delete</button>
                                     </form>
