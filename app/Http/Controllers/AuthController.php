@@ -59,9 +59,8 @@ class AuthController extends Controller
     }
 
     public function storetambahrole(Request $request){
-
         Role::create([
-            'role' => $request->role,
+            'level' => $request->role,
         ]);
 
         return redirect()->route('manajemenrole')->with('success','Role Berhasil ditambahkan');
@@ -80,12 +79,6 @@ class AuthController extends Controller
 
     public function updateuser(Request $request){
 
-        $this->validate($request, [
-            'name' => 'required',
-            'email' => 'required',
-            'role_id' => 'required',
-        ]);
-
         $users = User::where('id', $request->id)->update([
             'name' => $request->name,
             'email' => $request->email,
@@ -98,12 +91,9 @@ class AuthController extends Controller
 
 
     public function updaterole(Request $request){
-        $this->validate($request, [
-            'role' => 'required',
-        ]);
-        
+
         $role = Role::where('id', $request->id)->update([
-            'role' => $request->role,
+            'level' => $request->role,
 
         ]);
 
@@ -114,15 +104,15 @@ class AuthController extends Controller
     {
         /// melakukan hapus data berdasarkan parameter yang dikirimkan
         $users = User::where('id', $id)->delete();
-  
+
         return redirect()->route('manajemenuser')->with('success','Akun telah Terhapus');
     }
 
-     public function destroyrole($id)
+    public function destroyrole($id)
     {
         /// melakukan hapus data berdasarkan parameter yang dikirimkan
         $role = Role::where('id', $id)->delete();
-  
+
         return redirect()->route('manajemenrole')->with('success','Role telah Terhapus');
     }
 

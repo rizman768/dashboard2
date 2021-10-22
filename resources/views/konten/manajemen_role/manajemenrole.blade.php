@@ -29,7 +29,7 @@
                             <tr>
                                 <td>{{ ++$i }}</td>
                                 <td>{{ $r->id }}</td>
-                                <td>{{ $r->role }}</td>
+                                <td>{{ $r->level }}</td>
                                 <td>
                                     <form action="/deleterole/{{$r->id}}" method="POST">
                                         <a class="btn btn-primary btn-sm" href="/editrole/{{$r->id}}">Edit</a>

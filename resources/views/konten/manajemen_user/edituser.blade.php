@@ -26,6 +26,7 @@
                         @endif
     					<form action="/updateuser" method="POST">
                             @csrf
+                            <input type="hidden" name="id" value="{{ $users->id }}">
                          
                             <input type="hidden" name="id" value="{{ $users->id }}">
 
@@ -42,12 +43,12 @@
                                         <input type="email" name="email" class="form-control" value="{{ $users->email }}" placeholder="Email">
                                     </div>
                                 </div>
-                               <!--  <div class="col-xs-12 col-sm-12 col-md-12">
+                                <!-- <div class="col-xs-12 col-sm-12 col-md-12">
                                     <div class="form-group">
                                         <strong>Password :</strong>
                                         <input type="password" name="password" class="form-control"  placeholder="Password">
-                                    </div> -->
-                                </div>
+                                    </div>
+                                </div> -->
                                 <div class="col-xs-12 col-sm-12 col-md-12">
                                     <div class="form-group">
                                         <strong>Role Id :</strong>
