@@ -31,7 +31,7 @@
                                 <td>{{ ++$i }}</td>
                                 <td>{{ $user->name }}</td>
                                 <td>{{ $user->email }}</td>
-                                <td>{{ $user->role->role }}</td>
+                                <td>{{ $user->role_id}}</td>
                                 <td>
                                     <form action="/deleteuser/{{$user->id}}" method="POST">
                                         <a class="btn btn-primary btn-sm" href="/edituser/{{$user->id}}">Edit</a>
