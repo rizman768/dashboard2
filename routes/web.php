@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('/');
+    return view('welcome');
 });
 
 
@@ -24,8 +24,8 @@ Route::get('register', [AuthController::class, 'register']);
 Route::post('storeregister', [AuthController::class, 'storeregister']);
 Route::post('storetambahuser', [AuthController::class, 'storetambahuser']);
 Route::post('storetambahrole', [AuthController::class, 'storetambahrole']);
-Route::get('deleteuser/{id}', [AuthController::class, 'destroyuser']);
-Route::get('deleterole/{id}', [AuthController::class, 'destroyrole']);
+Route::post('deleteuser/{id}', [AuthController::class, 'destroyuser']);
+Route::post('deleterole/{id}', [AuthController::class, 'destroyrole']);
 Route::get('edituser/{id}', [AuthController::class, 'edituser']);
 Route::get('editrole/{id}', [AuthController::class, 'editrole']);
 Route::post('updateuser', [AuthController::class, 'updateuser']);

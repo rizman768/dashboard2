@@ -50,9 +50,8 @@ class AuthController extends Controller
     }
 
         public function storetambahrole(Request $request){
-
         Role::create([
-            'role' => $request->role,
+            'level' => $request->role,
         ]);
 
         return redirect()->route('manajemenrole')->with('success','Akun Anda Berhasil dibuat');
@@ -72,24 +71,16 @@ class AuthController extends Controller
     }
 
       public function editrole($id){
-        $role = User::where('id', $id)->first();
+        $role = Role::where('id', $id)->first();
         return view('konten.Manajemen Role.editrole')->with(compact('role'));
     }
 
 
     public function updateuser(Request $request){
 
-        $this->validate($request, [
-            'name' => 'required',
-            'email' => 'required',
-            'password' => 'required',
-            'role_id' => 'required',
-        ]);
-
         $users = User::where('id', $request->id)->update([
             'name' => $request->name,
             'email' => $request->email,
-            'password' => bcrypt($request->password),
             'role_id' => $request->role_id,
             'remember_token' => Str::random(60),
         ]);
@@ -99,12 +90,9 @@ class AuthController extends Controller
 
 
     public function updaterole(Request $request){
-        $this->validate($request, [
-            'role' => 'required',
-        ]);
-        
+
         $role = Role::where('id', $request->id)->update([
-            'role' => $request->role,
+            'level' => $request->role,
 
         ]);
 

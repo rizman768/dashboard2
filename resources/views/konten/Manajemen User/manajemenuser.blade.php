@@ -37,7 +37,6 @@
                                         <a class="btn btn-primary btn-sm" href="/edituser/{{$user->id}}">Edit</a>
 
                                         @csrf
-										{{method_field('delete')}}
 
 										<button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?')">Delete</button>
                                     </form>
