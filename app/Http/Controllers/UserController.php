@@ -17,12 +17,14 @@ class UserController extends Controller
     public function manajemenuser(){
         $users = User::all();
 
+        // dd($users);
         return view('konten.manajemen_user.manajemenuser')->with(compact('users'));
     }
 
     public function tambahuser()
     {
-        return view('konten.manajemen_user.tambahuser');
+        $role = Role::all();
+        return view('konten.manajemen_user.tambahuser',['role' => $role]);
     }
 
     public function create(Request $request)
@@ -55,7 +57,8 @@ class UserController extends Controller
     public function edituser($id)
     {
         $users = User::where('id', $id)->first();
-        return view('konten.manajemen_user.edituser')->with(compact('users'));
+        $role = Role::all();
+        return view('konten.manajemen_user.edituser')->with(compact('users','role'));
     }
 
     public function delete($id)

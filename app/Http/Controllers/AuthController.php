@@ -14,6 +14,9 @@ class AuthController extends Controller
 {
 
     public function index(){
+        if (Auth::check()) {
+            return redirect('/dashboard');
+        }
         return view('auths.login');
     }
 
@@ -22,6 +25,7 @@ class AuthController extends Controller
             return redirect('/dashboard');
         }
         Session::flash('error', 'Email atau Password Salah');
+        dd([$request->email,$request->password]);
         return redirect('/login');
     }
 

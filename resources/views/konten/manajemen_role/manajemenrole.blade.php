@@ -18,8 +18,8 @@
 						<thead>
 							<tr>
 								<th>No</th>
-								<th>ID</th>
 								<th>Role</th>
+								<th>Iframe</th>
 								<th>Option</th>
 							</tr>
 						</thead>
@@ -28,8 +28,14 @@
 							@foreach ( $role as $r )
                             <tr>
                                 <td>{{ ++$i }}</td>
-                                <td>{{ $r->id }}</td>
                                 <td>{{ $r->level }}</td>
+																<td>
+																	@foreach ($r->iframe as $ifr)
+																		<ul>
+																			<li>{{$ifr->nama_dashboard}}</li>
+																		</ul>
+																	@endforeach
+																</td>
                                 <td>
                                     <form action="/deleterole/{{$r->id}}" method="POST">
                                         <a class="btn btn-primary btn-sm" href="/editrole/{{$r->id}}">Edit</a>

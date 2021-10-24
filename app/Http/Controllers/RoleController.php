@@ -15,21 +15,25 @@ class RoleController extends Controller
 {
     public function manajemenrole()
     {
-        $role = Role::all();
+        $role = Role::get();
 
-        return view('konten.manajemen_role.manajemenrole')->with(compact('role'));
+        // return view('konten.manajemen_role.manajemenrole')->with(compact('role'));
+        return view('konten.manajemen_role.manajemenrole',['role' => $role]);
     }
 
     public function tambahrole()
     {
-        return view('konten.manajemen_role.tambahrole');
+        $iframe = Iframe::all();
+        return view('konten.manajemen_role.tambahrole',['iframe'=>$iframe]);
     }
 
     public function storetambahrole(Request $request)
     {
-        Role::create([
+        $role = Role::create([
             'level' => $request->role,
         ]);
+        $role->iframe()->attach($request->iframe);
+        // dd($role->id);
 
         return redirect()->route('manajemenrole')->with('success','Role Berhasil ditambahkan');
     }
@@ -37,7 +41,8 @@ class RoleController extends Controller
     public function editrole($id)
     {
         $role = Role::where('id', $id)->first();
-        return view('konten.manajemen_role.editrole')->with(compact('role'));
+        $iframe = Iframe::all();
+        return view('konten.manajemen_role.editrole')->with(compact('role','iframe'));
     }
 
     public function updaterole(Request $request)
@@ -47,6 +52,9 @@ class RoleController extends Controller
             'level' => $request->role,
 
         ]);
+
+        Role::where('id', $request->id)->first()->iframe()->detach();
+        Role::where('id', $request->id)->first()->iframe()->attach($request->iframe);
 
         return redirect()->route('manajemenrole')->with('success','Akun telah terupdate');
     }

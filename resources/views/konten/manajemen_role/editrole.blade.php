@@ -23,6 +23,12 @@
                                         <strong>Role :</strong>
                                         <input type="text" name="role" class="form-control" value="{{ $role->level }}" placeholder="Role">
                                     </div>
+                                    <div class="form-group">
+                                        <strong>Dashboard Access :</strong><h6>(check again before submit)</h6>
+                                        @foreach ($iframe as $f)
+                                            <input type="checkbox" name="iframe[]" value="{{$f->id}}"> {{$f->nama_dashboard}} <br/>
+                                        @endforeach
+                                    </div>
                                 </div>
                                 <div class="col-xs-12 col-sm-12 col-md-12 text-center">
                                     <button type="submit" class="btn btn-primary">Submit</button>

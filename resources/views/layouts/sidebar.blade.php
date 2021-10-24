@@ -16,11 +16,11 @@
                                     <div class="sb-nav-link-icon"><i class="fa fa-user"></i></div>
                                     Manajemen Role
                                 </a>
-                            @endif
-                            <a class="nav-link" href="/olahiframe">
+                                <a class="nav-link" href="/olahiframe">
                                 <div class="sb-nav-link-icon"><i class="fa fa-th-large"></i></div>
-                                Manajemen Iframe
-                            </a>
+                                    Manajemen Iframe
+                                </a>
+                            @endif
                     </div>
                 </nav>
             </div>

@@ -12,7 +12,10 @@ class KontenController extends Controller
     
     public function dashboard()
     {
-        return view('konten.dashboard');
+        $user = auth()->user()->role_id;
+        $role = Role::find(1)->where('id',$user)->get();
+        // dd($role);
+        return view('konten.dashboard',['role'=>$role]);
     }
     
 }

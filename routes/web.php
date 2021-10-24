@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect('/login');
 });
 
 
@@ -54,4 +54,5 @@ Route::post('updateiframe', [IframeController::class, 'updateiframe']);
 Route::post('deleteiframe/{id}', [IframeController::class, 'destroyiframe']);
 
 use App\Http\Controllers\KontenController;
-Route::get('dashboard', [KontenController::class, 'dashboard'])->name('dashboard')->middleware('auth','cekrole:1, 2');
+// Route::get('dashboard', [KontenController::class, 'dashboard'])->name('dashboard')->middleware('auth','cekrole:1, 2,5');
+Route::get('dashboard', [KontenController::class, 'dashboard'])->name('dashboard');
