@@ -17,7 +17,6 @@ class RoleController extends Controller
     {
         $role = Role::get();
 
-        // return view('konten.manajemen_role.manajemenrole')->with(compact('role'));
         return view('konten.manajemen_role.manajemenrole',['role' => $role]);
     }
 

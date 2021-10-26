@@ -10,12 +10,26 @@ use App\Models\Iframe;
 class KontenController extends Controller
 {
     
-    public function dashboard()
+    public function dashboard($id=null)
     {
-        $user = auth()->user()->role_id;
-        $role = Role::find(1)->where('id',$user)->get();
-        // dd($role);
-        return view('konten.dashboards.dashboard',['role'=>$role]);
+
+        if ($id != null) {
+            $iframe = Iframe::where('id',$id)->get();
+            $data = [
+                'link' => $iframe[0]->link,
+                'name' => $iframe[0]->nama_dashboard
+            ];
+        } else {
+            $user = auth()->user()->role_id;
+            $role = Role::where('id',$user)->get();
+    
+            $data = [
+                'link' => $role[0]->iframe[0]->link,
+                'name' => $role[0]->iframe[0]->nama_dashboard
+            ];
+        }
+
+        return view('konten.dashboards.dashboard',['data'=>$data]);
     }
 
     public function db_coziness()

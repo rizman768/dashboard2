@@ -55,7 +55,7 @@ Route::post('deleteiframe/{id}', [IframeController::class, 'destroyiframe']);
 
 use App\Http\Controllers\KontenController;
 // Route::get('dashboard', [KontenController::class, 'dashboard'])->name('dashboard')->middleware('auth','cekrole:1, 2,5');
-Route::get('dashboard', [KontenController::class, 'dashboard'])->name('dashboard');
+Route::get('dashboard/{id?}', [KontenController::class, 'dashboard'])->name('dashboard');
 Route::get('db_coziness', [KontenController::class, 'db_coziness']);
 Route::get('db_cumulativecounting', [KontenController::class, 'db_cumulativecounting']);
 Route::get('db_facerecognition', [KontenController::class, 'db_facerecognition']);
