@@ -25,7 +25,7 @@ class AuthController extends Controller
             return redirect('/dashboard');
         }
         Session::flash('error', 'Email atau Password Salah');
-        dd([$request->email,$request->password]);
+        // dd([$request->email,$request->password]);
         return redirect('/login');
     }
 

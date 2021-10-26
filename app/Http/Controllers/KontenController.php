@@ -15,7 +15,9 @@ class KontenController extends Controller
         $user = auth()->user()->role_id;
         $role = Role::find(1)->where('id',$user)->get();
         // dd($role);
-        return view('konten.dashboard',['role'=>$role]);
+        return view('konten.dashboards.dashboard',['role'=>$role]);
     }
+
+    
     
 }

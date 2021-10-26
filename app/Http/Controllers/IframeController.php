@@ -18,6 +18,7 @@ class IframeController extends Controller
         $iframe = Iframe::all();
 
         return view('konten.manajemen_iframe.manajemeniframe')->with(compact('iframe'));
+        return view('layouts.sidebar')->with(compact('role'));
     }
 
     public function tambahiframe()

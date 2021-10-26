@@ -18,7 +18,7 @@ class User extends Authenticatable
      * @var string[]
      */
 
-    protected $table = "users";
+    protected $table = 'users';
 
     protected $fillable = [
         'name',
@@ -28,7 +28,7 @@ class User extends Authenticatable
     ];
 
     public function role(){
-        return $this->belongsTo(Role::class, 'role_id', 'id');
+        return $this->belongsTo(Role::class, 'role_id', 'id', 'level');
     }
 
     /**
