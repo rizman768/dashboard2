@@ -11,26 +11,26 @@
                             <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
                                     @if (auth()->user()->role_id=="1")
-                                    <a class="nav-link" href="/dashboard"> 
+                                    <a class="nav-link" href="/db_safesecure"> 
                                        Safe Secure
                                     </a>
-                                    <a class="nav-link" href=""> 
+                                    <a class="nav-link" href="/db_coziness"> 
                                        Coziness
                                     </a>
-                                    <a class="nav-link" href=""> 
+                                    <a class="nav-link" href="/db_socialdistencing"> 
                                        Social Distancing
                                     </a>
-                                    <a class="nav-link" href=""> 
+                                    <a class="nav-link" href="/db_cumulativecounting"> 
                                       Cumulative Counting
                                     </a>
-                                    <a class="nav-link" href=""> 
+                                    <a class="nav-link" href="/db_facerecognition"> 
                                        Face Recognition
                                     </a>
-                                    <a class="nav-link" href=""> 
+                                    <a class="nav-link" href="/db_saranaprasarana"> 
                                        Kondisi dan Sarana Prasarana Stasiun
                                     </a>
                                     @endif
-                                    <a class="nav-link" href=""> 
+                                    <a class="nav-link" href="/db_sosialmedia"> 
                                        Metadata Social Media
                                     </a>
                                 </nav>
