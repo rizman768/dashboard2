@@ -1,12 +1,11 @@
 <?php
 
-namespace App\View\Components\sidebar;
+namespace App\View\Components;
 
-use Auth;
-use App\Models\Role;
 use Illuminate\View\Component;
+use App\Models\Role;
 
-class submenu extends Component
+class Submenu extends Component
 {
     /**
      * Create a new component instance.
@@ -25,9 +24,9 @@ class submenu extends Component
      */
     public function render()
     {
-        $user = Auth::user()->role_id;
-        $role = Role::find(1)->where('id',$user)->get();
+        $user = auth()->user()->role_id;
+        $role = Role::where('id',$user)->get();
 
-        return view('components.sidebar.submenu',['role'=>$role]);
+        return view('components.submenu',['role'=>$role]);
     }
 }

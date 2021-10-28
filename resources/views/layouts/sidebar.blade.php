@@ -10,7 +10,7 @@
                                 <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                                 <!-- </a>     -->
                             </a>
-                            <x-sidebar.submenu/>
+                            <x-submenu/>
                             @if (auth()->user()->role_id=="1")  
                                 <a class="nav-link" href="/olahuser">
                                     <div class="sb-nav-link-icon"><i class="fa fa-user"></i></div>
