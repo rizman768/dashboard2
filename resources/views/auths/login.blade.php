@@ -18,7 +18,10 @@
                         <div class="row justify-content-center">
                             <div class="col-lg-5">
                                 <div class="card shadow-lg border-0 rounded-lg mt-5">
-                                    <div class="card-header"><h3 class="text-center font-weight-light my-4">Login</h3></div>
+                                    <div class="card-header">
+                                        <div class="logo text-center my-4"><img src="{{asset('logo-viana.png')}}" alt="Logo Viana" class="img-responsive logo" width="200" ></div>
+                                        <h3 class="text-center font-weight-light my-4">Login</h3>
+                                    </div>
                                     <div class="card-body">
                                         <form action="/userlogin" method="post">
                                             @csrf
@@ -53,7 +56,7 @@
                 <footer class="py-4 bg-light mt-auto">
                     <div class="container-fluid px-4">
                         <div class="d-flex align-items-center justify-content-between small">
-                            <div class="text-muted">Copyright &copy; Your Website 2021</div>
+                            <div class="text-muted">Copyright &copy; Viana 2021</div>
                             <div>
                                 <a href="#">Privacy Policy</a>
                                 &middot;

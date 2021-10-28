@@ -7,7 +7,7 @@
         <li class="breadcrumb-item active">Dashboard</li>
     </ol>
     <div class="row">
-        <iframe src="{{$data['link']}}" frameborder="0" width="1000" height="550" allowtransparency></iframe>
+        <iframe src="{{$data['link']}}" frameborder="0" width="1000" height="1000" allowtransparency></iframe>
     </div>
 </div>
 @endsection
