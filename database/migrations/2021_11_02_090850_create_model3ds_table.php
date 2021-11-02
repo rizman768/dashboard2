@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateIframesTable extends Migration
+class CreateModel3dsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,11 @@ class CreateIframesTable extends Migration
      */
     public function up()
     {
-        Schema::create('iframes', function (Blueprint $table) {
+        Schema::create('model3ds', function (Blueprint $table) {
             $table->id();
-            $table->string('link');
+            $table->bigInteger('user_id')->nullable();
             $table->string('model3d');
-            $table->string('nama_dashboard');
+            $table->string('link');
             $table->timestamps();
         });
     }
@@ -29,6 +29,6 @@ class CreateIframesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('iframes');
+        Schema::dropIfExists('model3ds');
     }
 }

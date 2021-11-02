@@ -22,7 +22,7 @@
                                 </a>
                                 <a class="nav-link" href="/olahiframe">
                                 <div class="sb-nav-link-icon"><i class="fa fa-th-large"></i></div>
-                                    Manajemen Iframe
+                                    Konfigurasi Analitycs
                                 </a>
                             @endif
                     </div>

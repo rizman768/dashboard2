@@ -28,8 +28,12 @@ class User extends Authenticatable
     ];
 
     public function role(){
-        return $this->belongsTo(Role::class, 'role_id', 'id', 'level');
+        return $this->belongsTo(Role::class, 'role_id', 'id', 'level');   
     }
+
+    public function model3d(){
+        return $this->hasOne(Model3d::class);
+    }    
 
     /**
      * The attributes that should be hidden for serialization.
