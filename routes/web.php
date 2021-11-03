@@ -58,6 +58,11 @@ Route::middleware(['auth','cekrole:1'])->group(function () {
 
     // Model3d Routes
     Route::get('olahmodel3d', [Model3dController::class, 'manajemenmodel3d'])->name('manajemenmodel3d');
+    Route::get('tambahmodel3d', [Model3dController::class, 'tambahmodel3d']);
+    Route::post('storetambahmodel3d', [Model3dController::class, 'storetambahmodel3d']);
+    Route::get('editmodel3d/{id}', [Model3dController::class, 'editmodel3d']);
+    Route::post('updatemodel3d', [Model3dController::class, 'updatemodel3d']);
+    Route::post('deletemodel3d/{id}', [Model3dController::class, 'destroymodel3d']);
     
 });
 

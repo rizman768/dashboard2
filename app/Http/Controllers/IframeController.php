@@ -17,8 +17,7 @@ class IframeController extends Controller
     public function manajemeniframe()
     {
         $iframe = Iframe::all();
-        $model3d = Model3d::all();
-        return view('konten.manajemen_iframe.manajemeniframe')->with(compact('iframe', 'model3d'));
+        return view('konten.manajemen_iframe.manajemeniframe')->with(compact('iframe'));
     }
 
     public function tambahiframe()

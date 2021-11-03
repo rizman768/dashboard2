@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Role;
 use App\Models\Iframe;
+use App\Models\Model3d;
+
 
 class KontenController extends Controller
 {
@@ -34,7 +36,10 @@ class KontenController extends Controller
 
     public function home()
     {
-        return view('konten.dashboards.home');
+        $user = auth()->user()->id;
+        $model3d = Model3d::find(1)->where('user_id',$user)->get();
+
+        return view('konten.dashboards.home',['model3d'=>$model3d]);
     }
 
     public function db_coziness()
