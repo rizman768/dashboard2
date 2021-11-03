@@ -70,3 +70,4 @@ Route::get('db_safesecure', [KontenController::class, 'db_safesecure']);
 Route::get('db_saranaprasarana', [KontenController::class, 'db_saranaprasarana']);
 Route::get('db_socialdistencing', [KontenController::class, 'db_socialdistencing']);
 Route::get('db_sosialmedia', [KontenController::class, 'db_sosialmedia']);
+Route::get('home', [KontenController::class, 'home'])->name('home');

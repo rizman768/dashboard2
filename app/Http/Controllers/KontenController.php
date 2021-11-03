@@ -32,6 +32,11 @@ class KontenController extends Controller
         return view('konten.dashboards.dashboard',['data'=>$data]);
     }
 
+    public function home()
+    {
+        return view('konten.dashboards.home');
+    }
+
     public function db_coziness()
     {
     	$user = auth()->user()->role_id;
