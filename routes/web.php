@@ -6,6 +6,7 @@ use App\Http\Controllers\RoleController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\IframeController;
 use App\Http\Controllers\KontenController;
+use App\Http\Controllers\Model3dController;
 
 /*
 |--------------------------------------------------------------------------
@@ -54,6 +55,9 @@ Route::middleware(['auth','cekrole:1'])->group(function () {
     Route::get('editiframe/{id}', [IframeController::class, 'editiframe']);
     Route::post('updateiframe', [IframeController::class, 'updateiframe']);
     Route::post('deleteiframe/{id}', [IframeController::class, 'destroyiframe']);
+
+    // Model3d Routes
+    Route::get('olahmodel3d', [Model3dController::class, 'manajemenmodel3d'])->name('manajemenmodel3d');
     
 });
 

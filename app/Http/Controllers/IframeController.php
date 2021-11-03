@@ -9,6 +9,7 @@ use Illuminate\Support\Str;
 use App\Models\User;
 use App\Models\Role;
 use App\Models\Iframe;
+use App\Models\Model3d;
 use Validator;
 
 class IframeController extends Controller
@@ -16,7 +17,8 @@ class IframeController extends Controller
     public function manajemeniframe()
     {
         $iframe = Iframe::all();
-        return view('konten.manajemen_iframe.manajemeniframe')->with(compact('iframe'));
+        $model3d = Model3d::all();
+        return view('konten.manajemen_iframe.manajemeniframe')->with(compact('iframe', 'model3d'));
     }
 
     public function tambahiframe()

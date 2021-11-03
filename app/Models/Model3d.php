@@ -9,8 +9,6 @@ class Model3d extends Model
 {
     use HasFactory;
 
-    protected $table = 'model3d';
-
     protected $fillable = [
     	'id',
         'link',
