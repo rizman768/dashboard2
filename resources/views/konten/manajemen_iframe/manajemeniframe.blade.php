@@ -12,7 +12,7 @@
 					<!-- Tabs navs -->
 					<ul class="nav nav-tabs nav-fill mb-3" id="ifr1" role="tablist">
 					  <li class="nav-item" role="presentation">
-					    <a class="nav-link active" id="ifr2-tab-1" data-mdb-toggle="tab" href="#ifr2-tabs-1" role="tab" aria-controls="ifr2-tabs-1" aria-selected="true">
+					    <a class="nav-link active" id="ifr1-tab-1" data-mdb-toggle="tab" href="#ifr1-tabs-1" role="tab" aria-controls="ifr1-tabs-1" aria-selected="true">
 					    	Iframe
 						</a>
 					  </li>
