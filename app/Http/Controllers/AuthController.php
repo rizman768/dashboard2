@@ -43,7 +43,7 @@ class AuthController extends Controller
         User::create([
             'name' => $request->nama,
             'email' => $request->email,
-            'role_id' => 2,
+            'role_id' => 1,
             'password' => bcrypt($request->password),
             'remember_token' => Str::random(60),
         ]);

@@ -8,8 +8,8 @@
     </ol>
     <div class="row">
         <!-- <p>{{$model3d}}</p> -->
-        <div class="col-lg-12 3dframe" data-src="{{$model3d[0]['link']}}">
-            <iframe id="model-3d-view-iframe" src="{{$model3d[0]['link']}}" width="100%" height="326" allowfullscreen="allowfullscreen"></iframe>
+        <div class="col-lg-12 3dframe" data-src="{{ $model3d[0]['link'] }}">
+            <iframe id="model-3d-view-iframe" src="{{ $model3d[0]['link'] }}" width="100%" height="326" allowfullscreen="allowfullscreen"></iframe>
         </div>
 
        <!--  <div class="col-lg-12 3dframe" data-src="https://app.sketchup.com/viewer/3dw?WarehouseModelId=6ebfefb7-e750-47e6-abb0-13ded430ea8d&amp;noEmbedWatermark=true&amp;width=580&amp;height=326">
