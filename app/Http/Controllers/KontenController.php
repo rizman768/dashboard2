@@ -38,7 +38,7 @@ class KontenController extends Controller
     {
         $user = auth()->user()->id;
         $model3d = Model3d::find(1)->where('user_id',$user)->get();
-
+// dd($model3d);
         return view('konten.dashboards.home',['model3d'=>$model3d]);
     }
 
